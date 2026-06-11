@@ -1,0 +1,47 @@
+---
+name: Workflow 1 - Job Dependencies
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Prepare Application Build
+        run: echo "Building application..."
+
+      - name: Complete Build Process
+        run: |
+          sleep 5
+          echo "Build completed successfully"
+
+  test:
+    needs: build
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Execute Application Tests
+        run: echo "Running tests..."
+
+      - name: Verify Test Results
+        run: |
+          sleep 5
+          echo "Testing completed successfully"
+
+  deploy:
+    needs: test
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Begin Application Deployment
+        run: echo "Deploying application..."
+
+      - name: Confirm Deployment Completion
+        run: |
+          sleep 5
+          echo "Application deployed successfully"
