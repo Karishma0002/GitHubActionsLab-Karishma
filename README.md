@@ -20,8 +20,8 @@ This workflow runs whenever changes are pushed to the main branch.
 
 For the second workflow, I created three jobs to run on different operating systems:
 
-Ubuntu
-Windows
+Ubuntu , 
+Windows , 
 macOS
 
 Each job checks out the repository, displays system information, and creates a small file to show that the workflow is running correctly.
