@@ -1,0 +1,54 @@
+---
+name: Workflow 2 - Multi Platform Testing
+
+on:
+  pull_request:
+    branches:
+      - main
+
+jobs:
+
+  ubuntu-job:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Repository Code
+        uses: actions/checkout@v4
+
+      - name: Display Ubuntu System Details
+        run: uname -a
+
+      - name: Create and Read Ubuntu Test File
+        run: |
+          echo "This file was created during the Ubuntu job." > ubuntu-test.txt
+          cat ubuntu-test.txt
+
+  windows-job:
+    runs-on: windows-latest
+
+    steps:
+      - name: Checkout Repository Code
+        uses: actions/checkout@v4
+
+      - name: Display Windows System Details
+        run: systeminfo
+
+      - name: Create and Read Windows Test File
+        run: |
+          echo "This file was created during the Windows job." > windows-test.txt
+          type windows-test.txt
+
+  macos-job:
+    runs-on: macos-latest
+
+    steps:
+      - name: Checkout Repository Code
+        uses: actions/checkout@v4
+
+      - name: Display macOS System Details
+        run: uname -a
+
+      - name: Create and Read macOS Test File
+        run: |
+          echo "This file was created during the macOS job." > macos-test.txt
+          cat macos-test.txt
